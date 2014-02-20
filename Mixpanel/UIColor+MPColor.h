@@ -6,7 +6,9 @@
 + (UIColor *)mp_lightEffectColor;
 + (UIColor *)mp_extraLightEffectColor;
 + (UIColor *)mp_darkEffectColor;
++ (UIColor *)readableForegroundColorForBackgroundColor:(UIColor *)backgroundColor;
 
 - (UIColor *)colorWithSaturationComponent:(CGFloat) saturation;
+
 
 @end

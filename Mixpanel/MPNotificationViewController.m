@@ -261,19 +261,19 @@
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
     _imageView.layer.masksToBounds = YES;
 
+    UIColor *backgroundColor = [UIColor mp_darkEffectColor];
+    if (!backgroundColor) {
+        backgroundColor = [UIColor mp_darkEffectColor];
+    }
+    backgroundColor = [backgroundColor colorWithAlphaComponent:0.95f];
+    self.view.backgroundColor = backgroundColor;
+    
     self.bodyLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     _bodyLabel.textColor = [UIColor whiteColor];
     _bodyLabel.backgroundColor = [UIColor clearColor];
     _bodyLabel.font = [UIFont systemFontOfSize:14.0f];
     _bodyLabel.lineBreakMode = NSLineBreakByWordWrapping;
     _bodyLabel.numberOfLines = 0;
-
-    UIColor *backgroundColor = [UIColor mp_applicationPrimaryColor];
-    if (!backgroundColor) {
-        backgroundColor = [UIColor mp_darkEffectColor];
-    }
-    backgroundColor = [backgroundColor colorWithAlphaComponent:0.95f];
-    self.view.backgroundColor = backgroundColor;
 
     if (self.notification != nil) {
         if (self.notification.image != nil) {
@@ -308,6 +308,8 @@
     UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(didPan:)];
     [self.view addGestureRecognizer:pan];
 }
+
+
 
 - (void)viewWillLayoutSubviews
 {
